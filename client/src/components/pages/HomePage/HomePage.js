@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className='ms-auto text-center text-light my-4 py-2'>Our Products</h1>
+      <h1 className='text-center text-light my-4 py-2'>Our Products</h1>
       <div className="row">
         {productsOnPage.map((product) => (
           <div key={product.id} className="col-md-6 col-lg-4 col-xxl-3">
@@ -39,18 +39,20 @@ const Home = () => {
       </div>
       <nav className='d-flex justify-content-center align-items-center mt-4'>
         <ul className='pagination mb-4'>
-        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`} 
-            onClick={() => handlePageChange(currentPage - 1)}>
+          <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`} 
+              onClick={() => handlePageChange(currentPage - 1)}>
             <button className="page-link" disabled={currentPage === 1}>
               <FaAngleLeft />
             </button>
           </li>
           {Array.from({ length: totalPages }, (_, i) => (
             <li key={i} className={`page-item ${i + 1 === currentPage ? 'active' : ''}`} >
-              <button className='page-link' 
+              <button 
+                className='page-link' 
                 onClick={() => handlePageChange(i + 1)} 
-                style={{background: '#000', color: '#fff'} }>
-                  {i + 1}
+                style={{ background: '#000', color: '#fff' }}
+              >
+                {i + 1}
               </button>
             </li>
           ))}

@@ -99,7 +99,11 @@ const OrderPage = () => {
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit" className={`btn btn-primary ${styles.btnhv}`} style={{ background: '#000', border: '#000' }}>
+          <button 
+            type="submit" 
+            className={`btn btn-primary ${styles.btnhv}`} 
+            style={{ background: '#000', border: '#000' }}
+          >
             Order
           </button>
         </form>

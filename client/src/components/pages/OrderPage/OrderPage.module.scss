@@ -1,48 +1,47 @@
 @import '../../../styles/variables.scss';
 
 .orderPage {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .leftSection,
-  .rightSection {
-    flex: 1;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center; 
-    margin: 0 15px;
-  }
-  
-  .btnhv {
-    transition: background-color 0.3s, border 0.3s; 
-    
-    &:hover {
-        background-color: $accentColor !important;
-        border: $accentColor !important;
-        transform: translateY(-2px); 
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
+.leftSection,
+.rightSection {
+  flex: 1;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: 0 15px;
+}
+
+.btnhv {
+  transition: background-color 0.3s, border 0.3s;
   
-  .underlinedTop {
-    border-top: solid 1px $textColor;
+  &:hover {
+    background-color: $accentColor !important;
+    border: $accentColor !important;
+    transform: translateY(-2px);
+  }
+}
+
+.underlinedTop {
+  border-top: solid 1px $textColor;
+}
+
+.underlinedBottom {
+  border-bottom: solid 1px $textColor;
+}
+
+@media (max-width: 768px) {
+  .orderPage {
+    flex-direction: column;
   }
 
-  .underlinedBottom {
-    border-bottom: solid 1px $textColor;
+  .leftSection,
+  .rightSection {
+    margin: 0;
   }
-
-  @media (max-width: 768px) {
-    .orderPage {
-      flex-direction: column;
-    }
-  
-    .leftSection,
-    .rightSection {
-      margin: 0;
-    }
-  }
+}

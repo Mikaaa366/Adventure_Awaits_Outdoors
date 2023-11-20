@@ -1,32 +1,33 @@
 import { Routes, Route } from 'react-router-dom';
-import  Header  from '../src/components/common/Header/Header';
+import Header from '../src/components/common/Header/Header';
 import Home from './components/pages/HomePage/HomePage';
 import Footer from './components/common/Footer/Footer';
 import { Container } from 'react-bootstrap';
 import ProductPage from './components/pages/ProductPage/ProductPage';
 import Cart from './components/pages/Cart/Cart';
+import OrderPage from './components/pages/OrderPage/OrderPage';
+import NotFound from './components/pages/NotFound/NotFound';
+import CustomFooter from './components/common/CustomFooter/CustomFooter';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCartItem } from './redux/cartRedux';
-import OrderPage from './components/pages/OrderPage/OrderPage';
-import NotFound from './components/pages/NotFound/NotFound';
-import CustomFooter from './components/common/CustomFooter/CustomFooter'
 import './styles/normalize.scss';
 import './styles/global.scss';
 
 const App = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const cartState = JSON.parse(localStorage.getItem('cart'));
     if (cartState) {
-        cartState.forEach((item) => {
-            dispatch(
-              updateCartItem({
-                id: item.id,
-                quantity: item.quantity,
-              })
-            );
-          });
+      cartState.forEach((item) => {
+        dispatch(
+          updateCartItem({
+            id: item.id,
+            quantity: item.quantity,
+          })
+        );
+      });
     }
   }, [dispatch]);
 

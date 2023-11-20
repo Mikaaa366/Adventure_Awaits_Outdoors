@@ -52,7 +52,7 @@ const Cart = () => {
   }, [cartItems]);
 
   return (
-    <div className={`container mt-5`}>
+    <div className='container mt-5'>
       <h2 className='text-light'>Your Cart</h2>
       {cartItems.length > 0 ? (
         <>
@@ -74,7 +74,7 @@ const Cart = () => {
                     <td>{item.name}</td>
                     <td>
                       <input
-                        type="text"
+                        type='text'
                         value={item.userComment || ''}
                         onChange={(e) => handleCommentChange(item.id, e.target.value)}
                         className={styles.inputComment}
@@ -83,18 +83,19 @@ const Cart = () => {
                     <td>${item.price}</td>
                     <td>
                       <input
-                        type="number"
+                        type='number'
                         value={item.quantity}
                         className={styles.formControl}
-                        onChange={(e) =>
-                          handleQuantityChange(item.id, e.target.value)
-                        }
-                        min="1"
+                        onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+                        min='1'
                       />
                     </td>
                     <td>${(item.price * item.quantity).toFixed(2)}</td>
                     <td>
-                      <button onClick={() => handleRemoveFromCart(item.id)} className={`btn btn-danger ${styles.btrm}`}>
+                      <button 
+                        onClick={() => handleRemoveFromCart(item.id)} 
+                        className={`btn btn-danger ${styles.btrm}`}
+                      >
                         <FontAwesomeIcon icon={faTrash} />
                       </button>
                     </td>
@@ -103,13 +104,18 @@ const Cart = () => {
               </tbody>
             </table>
           </div>
-          <div className={`d-flex justify-content-between ${styles.cartActions}`}style={{background: '#000', border: '#000'}}>
-            <button onClick={clearCart} 
-              className={`btn btn-warning ${styles.bthv}`}>
+          <div className={`d-flex justify-content-between ${styles.cartActions}`} style={{ background: '#000', border: '#000' }}>
+            <button 
+              onClick={clearCart} 
+              className={`btn btn-warning ${styles.bthv}`}
+            >
               Clear Cart
             </button>
             <Link to='/order/summary'>
-              <button className={`btn btn-primary ${styles.bthv}`} style={{background: '#000', border: '#000'}}>
+              <button 
+                className={`btn btn-primary ${styles.bthv}`} 
+                style={{ background: '#000', border: '#000' }}
+              >
                 Continue to Summary
               </button>
             </Link>
