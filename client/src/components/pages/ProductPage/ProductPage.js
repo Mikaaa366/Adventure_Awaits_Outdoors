@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+
 import { IMG_URL } from "../../../config";
 import { addToCart } from "../../../redux/cartRedux";
 import { getProductsRequest } from "../../../redux/productsRedux";
@@ -13,6 +16,8 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const [activeThumbnail, setActiveThumbnail] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (products.length === 0) {
@@ -25,6 +30,10 @@ const ProductPage = () => {
       }
     }
   }, [dispatch, products, id]);
+
+  const images = product ? Array.from({ length: 4 }, (_, index) =>
+    `${IMG_URL}/${product.name.replace(/ /g, '')}${index + 1}.jpg`
+  ) : [];
 
   const handleQuantityChange = (event) => {
     const newQuantity = parseInt(event.target.value, 10);
@@ -43,6 +52,8 @@ const ProductPage = () => {
 
   const handleThumbnailClick = (index) => {
     setActiveThumbnail(index);
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
   };
 
   const handleAddToCart = () => {
@@ -63,6 +74,18 @@ const ProductPage = () => {
     localStorage.setItem('cart', JSON.stringify(updateCart));
   };
 
+  const moveToNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex < images.length - 1 ? prevIndex + 1 : prevIndex
+    );
+  };
+
+  const moveToPrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : prevIndex
+    );
+  };
+
   return (
     <div className={`container mt-5 ${styles.productContainer}`}>
       {product ? (
@@ -71,16 +94,17 @@ const ProductPage = () => {
             <div className={styles.customMainImageContainer}>
               <img
                 className={styles.customMainImage}
-                src={`${IMG_URL}/${product.name.replace(/ /g, '')}${activeThumbnail + 1}.jpg`}
+                src={images[activeThumbnail]}
                 alt={product.name}
+                onClick={() => handleThumbnailClick(activeThumbnail)}
               />
             </div>
             <div className={`d-flex flex-row ${styles.customThumbnail}`}>
-              {Array.from({ length: 4 }, (_, index) => (
+              {images.map((src, index) => (
                 <img
                   key={index}
                   className={`${styles.customThumbnail} ${activeThumbnail === index ? styles.active : ''}`}
-                  src={`${IMG_URL}/${product.name.replace(/ /g, '')}${index + 1}.jpg`}
+                  src={src}
                   alt={`Thumbnail ${index + 1}`}
                   onClick={() => handleThumbnailClick(index)}
                 />
@@ -137,6 +161,16 @@ const ProductPage = () => {
         </div>
       ) : (
         <p>Product not found.</p>
+      )}
+      {lightboxOpen && (
+        <Lightbox
+          mainSrc={images[currentImageIndex]}
+          nextSrc={images[(currentImageIndex + 1) % images.length]}
+          prevSrc={images[(currentImageIndex + images.length - 1) % images.length]}
+          onCloseRequest={() => setLightboxOpen(false)}
+          onMovePrevRequest={moveToPrevImage}
+          onMoveNextRequest={moveToNextImage}
+        />
       )}
     </div>
   );

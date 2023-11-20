@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { updateCartItem } from './redux/cartRedux';
 import OrderPage from './components/pages/OrderPage/OrderPage';
 import NotFound from './components/pages/NotFound/NotFound';
+import CustomFooter from './components/common/CustomFooter/CustomFooter'
 import './styles/normalize.scss';
 import './styles/global.scss';
 
@@ -41,6 +42,7 @@ const dispatch = useDispatch();
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Container>
+      <CustomFooter />
       <Footer />
     </div>
   );

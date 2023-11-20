@@ -29,19 +29,6 @@ const Home = () => {
 
   return (
     <div>
-      <section
-        className="d-flex row text-center"
-        style={{
-          height: '350px',
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/background-home.jpg)`,
-          backgroundSize: 'cover',
-          color: '#2b2b2e',
-        }}
-      >
-         <div className="d-flex justify-content-center align-items-end">
-          <span className="display-2 fw-bold"> OUTH </span>
-        </div>
-      </section>
       <h1 className='ms-auto text-center text-light my-4 py-2'>Our Products</h1>
       <div className="row">
         {productsOnPage.map((product) => (

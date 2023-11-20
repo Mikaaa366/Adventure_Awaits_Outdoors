@@ -6,7 +6,6 @@ import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faMountain } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
-
 const NavBar = () => {
   const cartItems = useSelector((state) => state.cart.products);
   const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
