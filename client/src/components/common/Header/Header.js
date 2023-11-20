@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from "../Navbar/Navbar"
-
 const Header = () => {
   return (
     <div>

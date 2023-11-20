@@ -1,0 +1,6 @@
+@import '../../../styles/variables.scss';
+
+.bthv:hover {
+    background-color: $accentColor !important;
+    border: $background !important;
+}

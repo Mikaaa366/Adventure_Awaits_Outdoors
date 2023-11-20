@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    text-align: center;
+}
+
+.text {
+    font-size: 2em; 
+    color: $textColor; 
+}
+
+.robot {
+    font-size: 2em; 
+    color: $textColor; 
+}

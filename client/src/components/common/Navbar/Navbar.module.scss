@@ -1,0 +1,43 @@
+
+@import '../../../styles/variables.scss';
+
+.navbar {
+  background-color: $background;
+  box-shadow: 0px 2px 6px $accentColor;
+  border-radius: 10px;
+}
+
+ .branding:hover {
+  color: $hover !important;
+ }
+
+ .link {
+  color: $textColor !important;
+  margin-right: 40px !important;
+  &:hover {
+    color: $hover !important;
+  }
+ }
+
+ .cartLink {
+  font-size: 20px !important;
+  color: $textColor !important;
+  padding-bottom: 10px !important;
+  &:hover {
+    color: $accentColor !important;
+  }
+ }
+
+ .counterLink {
+  border-radius: 150px 150px 150px 150px !important;
+  border: 1px solid $textColor !important;
+  height: 40px;
+  width: 40px;
+  background-color: $textColor !important;
+ }
+
+ .counter {
+  color: $accentColor;
+  text-align: center;
+  font-size: 15px;
+ }

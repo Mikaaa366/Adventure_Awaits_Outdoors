@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './redux/store';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,80 @@
+@import '../../../styles/variables.scss';
+
+
+.productContainer {
+  width: 80%;
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 20px; 
+  height: auto; 
+  min-height: 500px; 
+}
+.customMainImageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 550px;
+  overflow: hidden;
+  @media (max-width: 1200px) {
+    height: 200px;
+    width: 400px;
+  }
+
+  @media (max-width: 992px) {
+    height: 150px;
+    width: 250px;
+  }
+}
+
+.customMainImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto; // Wyśrodkowanie obrazu
+}
+
+.customThumbnail {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid $textColor;
+  transition: border-color 0.2s;
+
+  &.active {
+    border-color: $accentColor;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 992px) {
+    width: 75px;
+    height: 75px;
+    margin-right: 5px;
+  }
+}
+
+.formControl {
+  width: 60px;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.inputBtnGroup button {
+  margin: 0 5px;
+}
+
+.text, .label {
+  color: $textColor;
+}
+
+.btnhv:hover {
+  background-color: $accentColor !important;
+  border: 1px solid $accentColor !important;
+}

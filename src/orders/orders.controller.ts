@@ -14,12 +14,12 @@ import { CreateOrderDTO } from './dtos/create-order.dto';
 export class OrdersController {
   constructor(private ordersService: OrdersService) {}
 
-  @Get()
+  @Get('/')
   async getAll() {
     return this.ordersService.getAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   async getById(@Param('id', new ParseUUIDPipe()) id: string) {
     const order = await this.ordersService.getById(id);
     if (!order) {
@@ -28,7 +28,7 @@ export class OrdersController {
     return order;
   }
 
-  @Post()
+  @Post('/')
   async create(@Body() orderData: CreateOrderDTO) {
     return this.ordersService.create(orderData);
   }
