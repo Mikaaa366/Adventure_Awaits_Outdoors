@@ -92,21 +92,22 @@ const ProductPage = () => {
         <div className="row">
           <div className="col-md-6 order-md-last">
             <div className={styles.customMainImageContainer}>
-            <img
+              <img
                 className={styles.customMainImage}
-                src={`${IMG_URL}/${product.name.replace(/ /g, '')}${activeThumbnail + 1}.jpg`}
+                src={images[activeThumbnail]}
                 alt={product.name}
+                onClick={() => handleThumbnailClick(activeThumbnail)}
               />
             </div>
             <div className={`d-flex flex-row ${styles.customThumbnail}`}>
               {images.map((src, index) => (
                 <img
-                key={index}
-                className={`${styles.customThumbnail} ${activeThumbnail === index ? styles.active : ''}`}
-                src={`${IMG_URL}/${product.name.replace(/ /g, '')}${index + 1}.jpg`}
-                alt={`Thumbnail ${index + 1}`}
-                onClick={() => handleThumbnailClick(index)}
-              />
+                  key={index}
+                  className={`${styles.customThumbnail} ${activeThumbnail === index ? styles.active : ''}`}
+                  src={src}
+                  alt={`Thumbnail ${index + 1}`}
+                  onClick={() => handleThumbnailClick(index)}
+                />
               ))}
             </div>
           </div>
