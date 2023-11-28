@@ -73,7 +73,7 @@ function getProducts() {
     },
     {
       id: '6e9e8112-befd-4a09-9d60-4e4b43649388',
-      name: 'pocket knife',
+      name: 'Pocket Knife',
       price: 90,
       shortDescription: 'Small and elegant, this pocket tool.',
       description:
