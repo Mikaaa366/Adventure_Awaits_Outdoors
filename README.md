@@ -35,6 +35,7 @@ Aplikacja została zaprojektowana z myślą o łatwym rozszerzaniu i utrzymaniu.
 
 ## Galeria:
 
-<img src= "https://ibb.co/5MPFRM6">
-<img src= "https://ibb.co/zJhJ1Qf">
-<img src= "https://ibb.co/jhcT0gD">
+<img src="https://i.ibb.co/7Yq41YX/zam-wienie.jpg">
+<img src="https://i.ibb.co/fvYvbq0/produkt.jpg">
+<img src="https://i.ibb.co/Q92fSrM/g-owna-strona.jpg">
+
