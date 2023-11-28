@@ -62,7 +62,7 @@ function getProducts() {
         },
         {
             id: '6e9e8112-befd-4a09-9d60-4e4b43649388',
-            name: 'pocket knife',
+            name: 'Pocket Knife',
             price: 90,
             shortDescription: 'Small and elegant, this pocket tool.',
             description: 'For more than a century, the Classic SD has been an icon of sleek functionality. With a selection of matching accessories to complete the look, it’s the easiest lifetime commitment you’ll ever make.',
